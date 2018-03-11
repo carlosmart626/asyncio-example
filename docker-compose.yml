@@ -1,0 +1,37 @@
+version: '2'
+services:
+  postgres:
+    container_name: postgres-database
+    image: postgres:9.4
+    environment:
+     - POSTGRES_DB=sanic_example
+     - POSTGRES_USER=sanic_user
+     - POSTGRES_PASSWORD=sanic
+
+  redis:
+    container_name: redis
+    image: redis:4.0.7
+
+  django:
+    image: django_example
+    container_name: django
+    build: ./django_example
+    ports:
+      - 8080:8080
+    links:
+      - redis:redis
+      - postgres:postgres
+    environment:
+     - SECRET_KEY=123
+    command: sh run.sh
+
+  sanic:
+    image: sanic_example
+    container_name: sanic
+    build: ./sanic_example
+    ports:
+      - 8081:8081
+    links:
+      - redis:redis
+      - postgres:postgres
+    command: sh run.sh

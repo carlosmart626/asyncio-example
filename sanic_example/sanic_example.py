@@ -13,7 +13,7 @@ app = Sanic()
 
 async def create():
     conn = await asyncpg.connect(user='sanic_user', password='sanic',
-                                 database='sanic_example', host='127.0.0.1')
+                                 database='sanic_example', host='postgres')
     await conn.execute('''
         INSERT INTO myapp_mymodel(name, created) VALUES($1, $2)''', 'Bob', False)
     await conn.close()
@@ -26,4 +26,4 @@ async def hello(request):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000, workers=5)
+    app.run(host='0.0.0.0', port=8081, workers=5)

@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'sanic_example',
         'USER': 'sanic_user',
         'PASSWORD': 'sanic',
-        'HOST': 'localhost',
+        'HOST': 'postgres',
         'PORT': '',
     }
 }
