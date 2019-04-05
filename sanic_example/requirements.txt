@@ -14,7 +14,7 @@ promise==2.1
 psycopg2==2.7.4
 pytest-runner==4.0
 pytz==2018.3
-requests==2.18.4
+requests>=2.20.0
 Rx==1.6.1
 sanic==0.7.0
 Sanic-GraphQL==1.1.0
@@ -22,7 +22,7 @@ six==1.11.0
 SQLAlchemy==1.2.5
 typing==3.6.4
 ujson==1.35
-urllib3==1.22
+urllib3>=1.23
 uvloop==0.9.1
 websockets==4.0.1
 Werkzeug==0.14.1
